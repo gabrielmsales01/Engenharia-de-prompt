@@ -1,0 +1,71 @@
+Prompt Inicial:
+
+# Definindo uma lista de números
+numeros = [15.5, 25, 10, 50]
+
+# Calculando a soma com a função nativa
+total = sum(numeros)
+
+print(f"A soma total da lista é: {total}")
+
+Prompt Refinado:
+
+def calcular_soma(lista_numeros):
+    """
+    Função que recebe uma lista de inteiros, valida seu conteúdo 
+    e retorna a soma total dos elementos.
+    """
+    
+    # 1. VALIDAÇÃO DE LISTA VAZIA
+    # Em Python, listas vazias são avaliadas como 'False' em uma condição 'if'.
+    # O 'len(lista_numeros) == 0' também funcionaria aqui.
+    if not lista_numeros:
+        return "Aviso: A lista está vazia. Não é possível calcular a soma."
+    
+    # 2. VALIDAÇÃO DE TIPO DE DADO (Garantindo que são apenas inteiros)
+    # Percorremos a lista antes de somar para evitar erros no meio do cálculo.
+    for item in lista_numeros:
+        if type(item) is not int:
+            return f"Erro: A lista contém um valor inválido ('{item}'). Forneça apenas inteiros."
+            
+    # 3. PREPARAÇÃO PARA O CÁLCULO
+    # Criamos uma variável começando em zero para acumular os valores.
+    soma_total = 0
+    
+    # 4. ITERAÇÃO (Percorrendo a lista)
+    # O loop 'for' pega um número por vez da nossa lista.
+    for numero in lista_numeros:
+        # 5. ACÚMULO
+        # Somamos o número atual ao valor que já temos guardado na 'soma_total'.
+        # 'soma_total += numero' é o mesmo que 'soma_total = soma_total + numero'.
+        soma_total += numero
+        
+    # 6. RESULTADO
+    # Após o loop terminar, devolvemos o valor final calculado.
+    return soma_total
+
+
+# ==========================================
+# TESTANDO O CÓDIGO NA PRÁTICA
+# ==========================================
+
+# Teste 1: Uma lista normal contendo números inteiros
+lista_correta = [10, 15, 25, 50]
+resultado_1 = calcular_soma(lista_correta)
+print(f"Resultado Teste 1: {resultado_1}") 
+# Saída esperada: 100
+
+# Teste 2: A lista está vazia (acionando a validação exigida)
+lista_sem_nada = []
+resultado_2 = calcular_soma(lista_sem_nada)
+print(f"Resultado Teste 2: {resultado_2}") 
+# Saída esperada: Aviso de lista vazia
+
+# Teste 3: A lista contém um texto ou número decimal por engano
+lista_com_erro = [5, 10, "vinte", 30]
+resultado_3 = calcular_soma(lista_com_erro)
+print(f"Resultado Teste 3: {resultado_3}") 
+# Saída esperada: Erro informando o valor inválido
+
+Tarefa:
+A diferença entre os dois códigos é que, no primeiro código, apenas ensina o computador a somar. Já no código refinado mostra como um engenheiro de software programa, antecipando falhas, protegendo o sistema e facilitando a manutenção futura. 
