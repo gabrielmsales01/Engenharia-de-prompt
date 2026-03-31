@@ -1,0 +1,21 @@
+## 4. Comparação de Tecnologias
+
+Para demonstrar o resultado do prompt refinado, abaixo está a tabela comparativa entre as duas linguagens focada no desenvolvimento de sistemas corporativos.
+
+### Tabela: Java vs. Python
+
+| Linguagem | Paradigma de Programação | Desempenho | Curva de Aprendizado | Principais Aplicações (Sistemas Corporativos) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Java** | Fortemente Orientado a Objetos. | **Alto.** Compilado para *bytecode* e executado via JVM, lidando bem com alta concorrência e carga. | **Moderada a Alta.** Possui sintaxe mais verbosa e tipagem estática rigorosa. | Sistemas de grande porte (ERPs), *backend* do setor financeiro e aplicações legadas robustas. |
+| **Python** | Multiparadigma (Orientado a Objetos, Imperativo, Funcional). | **Médio.** Por ser interpretado, geralmente possui tempo de execução mais lento em processamento bruto. | **Baixa.** Sintaxe limpa, intuitiva e próxima da linguagem natural, com tipagem dinâmica. | *Pipelines* de dados, integração de IA, automação de rotinas e prototipagem ágil de microsserviços. |
+
+---
+
+### Avaliação: Como a tabela facilita a análise?
+
+O uso de um formato tabular, conforme exigido no prompt refinado, otimiza a análise técnica pelos seguintes motivos:
+
+* **Comparação Direta e Visual:** Ao alinhar as linguagens em linhas e os critérios em colunas, as diferenças e semelhanças ficam evidentes de forma imediata. É possível cruzar informações (ex: comparar o desempenho de ambas) sem precisar buscar a informação no meio de um parágrafo.
+* **Leitura Escaneável:** Profissionais de tecnologia e gestores conseguem extrair os dados críticos rapidamente, poupando tempo na tomada de decisão.
+* **Objetividade Forçada:** O formato de tabela restringe o espaço, forçando respostas concisas, diretas e focadas estritamente nos quatro pontos solicitados, eliminando redundâncias típicas de textos em prosa.
+* **Redução de Viés ou Omissão:** Um prompt vago ("Compare Java e Python") pode gerar um texto que foca muito em um aspecto (como sintaxe) e esquece outro (como aplicações corporativas). A tabela garante que todos os critérios exigidos sejam respondidos de forma equilibrada para ambos os lados.
