@@ -1,0 +1,137 @@
+Prompt inicial:
+
+function calcularTotal(array, desconto) {
+    let total = array.reduce((acc, item) => acc + item.p, 0);
+    
+    if (desconto > 0) {
+        total -= total * (desconto / 100);
+    }
+    return total;
+}
+
+let itens = [{p: 50}, {p: 50}];
+console.log(calcularTotal(itens, 10));
+
+Refinamento:
+
+// Função reutilizável para calcular o subtotal dos itens
+const calcularSubtotal = (produtos) => {
+    return produtos.reduce((acumulador, produto) => acumulador + produto.preco, 0);
+};
+
+// Função reutilizável para aplicar descontos percentuais
+const aplicarDesconto = (valor, percentualDesconto) => {
+    if (percentualDesconto <= 0) return valor;
+    const multiplicador = 1 - (percentualDesconto / 100);
+    return valor * multiplicador;
+};
+
+// Função principal que orquestra o cálculo
+const calcularTotalPedido = (produtos, percentualDesconto = 0) => {
+    if (!produtos || produtos.length === 0) return 0;
+    
+    const subtotal = calcularSubtotal(produtos);
+    return aplicarDesconto(subtotal, percentualDesconto);
+};
+
+// Exemplo de uso:
+const carrinhoDeCompras = [{ preco: 50 }, { preco: 50 }];
+const descontoPromocional = 10;
+
+console.log(calcularTotalPedido(carrinhoDeCompras, descontoPromocional));
+
+Avaliação da Diferença (Conclusão)
+A diferença na qualidade da resposta é gritante e ilustra perfeitamente a importância da Engenharia de Prompts:
+
+Profundidade da Solução: O prompt vago resultou em uma "maquiagem" no código (apenas trocou o for por reduce). O prompt refinado resultou em uma verdadeira refatoração arquitetural, transformando um script simples em um código de nível de produção.
+
+Atendimento de Requisitos Extras: Ao pedir explicitamente por "funções reutilizáveis", a IA foi forçada a separar a lógica de soma da lógica de desconto, o que não aconteceu no primeiro caso.
+
+O Gemini disse
+Para resolver a tarefa proposta na imagem, vamos criar um cenário prático. Primeiro, definiremos um trecho de código JavaScript intencionalmente confuso e mal estruturado. Em seguida, simularemos as respostas de uma IA para ambos os prompts (o vago e o refinado) usando este mesmo código, e por fim, avaliaremos as diferenças.
+
+O Código de Teste (Código Original)
+Este código calcula o valor total de um carrinho de compras aplicando um desconto, mas usa más práticas, como nomes de variáveis não descritivos e falta de modularidade.
+
+JavaScript
+function calc(a, b) {
+    let t = 0;
+    for(let i=0; i<a.length; i++){
+        t += a[i].p;
+    }
+    if (b > 0) {
+        t = t - (t * (b/100));
+    }
+    return t;
+}
+
+let arr = [{p: 50}, {p: 50}];
+console.log(calc(arr, 10));
+Teste 1: Resposta ao Prompt Vago
+Prompt: Melhore este código.
+
+Simulação da Resposta da IA:
+Aqui está uma versão melhorada do seu código usando o método reduce, que é mais moderno:
+
+JavaScript
+function calcularTotal(array, desconto) {
+    let total = array.reduce((acc, item) => acc + item.p, 0);
+    
+    if (desconto > 0) {
+        total -= total * (desconto / 100);
+    }
+    return total;
+}
+
+let itens = [{p: 50}, {p: 50}];
+console.log(calcularTotal(itens, 10));
+Teste 2: Resposta ao Prompt Refinado
+Prompt: Refatore este código em JavaScript para torná-lo mais legível e eficiente. Use boas práticas de programação, como nomes de variáveis claros e funções reutilizáveis. Explique as mudanças realizadas.
+
+Simulação da Resposta da IA:
+Aqui está o código refatorado aplicando princípios de Clean Code (Código Limpo) e modularidade:
+
+JavaScript
+// Função reutilizável para calcular o subtotal dos itens
+const calcularSubtotal = (produtos) => {
+    return produtos.reduce((acumulador, produto) => acumulador + produto.preco, 0);
+};
+
+// Função reutilizável para aplicar descontos percentuais
+const aplicarDesconto = (valor, percentualDesconto) => {
+    if (percentualDesconto <= 0) return valor;
+    const multiplicador = 1 - (percentualDesconto / 100);
+    return valor * multiplicador;
+};
+
+// Função principal que orquestra o cálculo
+const calcularTotalPedido = (produtos, percentualDesconto = 0) => {
+    if (!produtos || produtos.length === 0) return 0;
+    
+    const subtotal = calcularSubtotal(produtos);
+    return aplicarDesconto(subtotal, percentualDesconto);
+};
+
+// Exemplo de uso:
+const carrinhoDeCompras = [{ preco: 50 }, { preco: 50 }];
+const descontoPromocional = 10;
+
+console.log(calcularTotalPedido(carrinhoDeCompras, descontoPromocional));
+Mudanças Realizadas:
+
+Nomes Claros: Variáveis como a, b, t e p foram renomeadas para produtos, percentualDesconto, subtotal e preco, revelando imediatamente a intenção do código.
+
+Modularidade (Funções Reutilizáveis): A lógica foi dividida em três funções (calcularSubtotal, aplicarDesconto e calcularTotalPedido). Cada função faz apenas uma coisa, facilitando testes e reutilização em outras partes do sistema.
+
+Eficiência e Modernidade: Substituímos o loop for tradicional pelo método reduce(), que é mais declarativo.
+
+Prevenção de Erros: Adicionamos uma validação inicial na função principal (if (!produtos...)) para evitar erros caso a lista de produtos esteja vazia ou indefinida.
+
+Avaliação da Diferença (Conclusão)
+A diferença na qualidade da resposta é gritante e ilustra perfeitamente a importância da Engenharia de Prompts:
+
+Profundidade da Solução: O prompt vago resultou em uma "maquiagem" no código (apenas trocou o for por reduce). O prompt refinado resultou em uma verdadeira refatoração arquitetural, transformando um script simples em um código de nível de produção.
+
+Atendimento de Requisitos Extras: Ao pedir explicitamente por "funções reutilizáveis", a IA foi forçada a separar a lógica de soma da lógica de desconto, o que não aconteceu no primeiro caso.
+
+Valor Educacional: O prompt refinado exigiu uma explicação ("Explique as mudanças"). Isso não apenas entrega o código pronto, mas documenta o raciocínio, ajudando o programador a aprender e a justificar as escolhas técnicas em uma eventual revisão de código (Code Review).
