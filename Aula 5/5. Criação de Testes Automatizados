@@ -1,0 +1,51 @@
+## 5. Criação de Testes Automatizados
+
+Abaixo está a execução da tarefa, simulando as respostas para ambos os prompts e realizando a comparação solicitada.
+
+### Execução do Prompt Inicial (Vago)
+**Prompt:** *Crie um teste para este código.*
+
+**Resultado Prático:** A IA não conseguirá gerar um resultado útil de primeira. Ela retornará uma resposta genérica pedindo o código, a linguagem de programação e o framework de testes desejado (ex: "Por favor, forneça o código que você deseja testar..."). Se o código fosse colado junto, ela provavelmente criaria um teste básico apenas para o "caminho feliz" (cenário ideal), escolhendo um framework arbitrário que poderia não ser o usado pelo projeto da equipe.
+
+---
+
+### Execução do Prompt Refinado
+**Prompt:** *Crie um teste unitário em Python usando a biblioteca unittest para verificar se a função calcular_media(lista) retorna corretamente a média dos valores. Inclua casos de teste para lista vazia e lista com valores negativos.*
+
+**Resultado Prático (Código Gerado):**
+
+```python
+import unittest
+
+# Função alvo (simulada para contexto do teste)
+def calcular_media(lista):
+    if not lista:
+        return 0  # Tratamento assumido para lista vazia
+    return sum(lista) / len(lista)
+
+class TestCalcularMedia(unittest.TestCase):
+    
+    def test_media_valores_positivos(self):
+        """Testa o cálculo da média com valores positivos padões."""
+        self.assertEqual(calcular_media([10, 20, 30]), 20.0)
+
+    def test_lista_vazia(self):
+        """Testa o comportamento da função ao receber uma lista vazia."""
+        self.assertEqual(calcular_media([]), 0)
+
+    def test_valores_negativos(self):
+        """Testa o cálculo da média com listas contendo números negativos."""
+        self.assertEqual(calcular_media([-10, -20, -30]), -20.0)
+        self.assertEqual(calcular_media([10, -20, 10]), 0.0)
+
+if __name__ == '__main__':
+    unittest.main()
+
+Comparação da Utilidade Prática
+Ao comparar a utilidade prática de ambos os prompts, a superioridade do Prompt Refinado é evidente por três razões principais:
+
+Contexto e Stack Tecnológico Definidos: O prompt refinado elimina as suposições da IA ao definir explicitamente a linguagem (Python) e a ferramenta (unittest). O código gerado já sai no formato exato que o desenvolvedor precisa para integrar ao seu projeto, economizando tempo de refatoração.
+
+Qualidade e Segurança do Código (Edge Cases): O maior ganho de utilidade prática é a exigência de casos específicos (lista vazia e valores negativos). Em uma função de média, uma lista vazia causaria um erro fatal (ZeroDivisionError). Forçar a IA a testar isso faz com que o desenvolvedor perceba antecipadamente falhas no seu código original.
+
+Redução de Iterações (Zero-Shot Prompting): O prompt vago gera uma conversa de idas e vindas (IA pede código -> humano manda código -> IA faz teste em Pytest -> humano pede em Unittest -> IA corrige). O prompt refinado resolve o problema em uma única interação (zero-shot), entregando valor imediato.
