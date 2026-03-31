@@ -1,0 +1,70 @@
+O Gemini disse
+Para resolver essa tarefa, vamos seguir a mesma dinâmica da anterior: usaremos um código Python de exemplo (uma função de cálculo de média escolar) e simularemos como uma IA responderia a cada um dos prompts. Em seguida, faremos a comparação.
+
+O Código de Teste
+Python
+def calcular_media(notas):
+    notas_validas = [n for n in notas if isinstance(n, (int, float)) and 0 <= n <= 10]
+    
+    if not notas_validas:
+        return 0.0
+        
+    return sum(notas_validas) / len(notas_validas)
+Teste 1: Resposta ao Prompt Vago
+Prompt: Explique este código.
+
+Simulação da Resposta da IA:
+Este código em Python define uma função chamada calcular_media que recebe uma variável notas. Na primeira linha dentro da função, ele faz um loop usando list comprehension para verificar se cada item na lista é um número (int ou float) e se está entre 0 e 10, salvando isso em notas_validas. Depois, ele verifica se a lista notas_validas está vazia usando if not. Se estiver vazia, retorna 0.0. Se não estiver, ele pega a soma de todas as notas válidas e divide pelo tamanho da lista, retornando a média final.
+
+Código de teste: 
+def calcular_media(notas):
+    notas_validas = [n for n in notas if isinstance(n, (int, float)) and 0 <= n <= 10]
+    
+    if not notas_validas:
+        return 0.0
+        
+    return sum(notas_validas) / len(notas_validas)
+
+Teste 2: Resposta ao Prompt Refinado
+Prompt: Explique este código em Python como se fosse uma documentação técnica para desenvolvedores iniciantes. Estruture a explicação em três partes: objetivo do código, descrição das funções e exemplos de uso.
+
+Simulação da Resposta da IA:
+
+1. Objetivo do Código
+O objetivo deste código é calcular a média matemática de uma lista de notas escolares de forma segura. Ele garante que o cálculo não quebre se receber dados incorretos (como textos ou notas fora do padrão), filtrando automaticamente apenas os valores numéricos válidos (de 0 a 10).
+
+2. Descrição das Funções
+calcular_media(notas): A função principal e única do script.
+
+Parâmetros:
+
+notas (list): Uma lista contendo os valores a serem avaliados.
+
+Lógica Interna:
+
+Filtragem: Utiliza um recurso chamado List Comprehension para criar uma nova lista (notas_validas). Ela guarda apenas os itens que são números (int ou float) e que estão no intervalo correto (entre 0 e 10).
+
+Validação: Verifica se sobraram notas válidas. Se a lista original estivesse vazia ou contivesse apenas textos, a função retorna 0.0 para evitar o erro de divisão por zero.
+
+Cálculo: Se houver notas válidas, divide a soma total (sum) pela quantidade de itens (len) para obter a média.
+
+Retorno: Retorna um número decimal (float) representando a média das notas válidas.
+
+3. Exemplos de Uso:
+
+# Exemplo 1: Uso padrão com notas normais
+turma_a = [8.5, 9.0, 7.5]
+print(calcular_media(turma_a)) 
+# Saída esperada: 8.333...
+
+# Exemplo 2: Tratamento de erros automáticos (ignorando textos e notas > 10)
+turma_b = [10, "faltei", 5, 12, -2]
+print(calcular_media(turma_b)) 
+# Saída esperada: 7.5 (calculou apenas a média entre 10 e 5)
+
+# Exemplo 3: Lista vazia ou sem notas válidas
+turma_c = ["ausente", "ausente"]
+print(calcular_media(turma_c)) 
+# Saída esperada: 0.0
+
+Conclusão: O prompt refinado não gerou apenas uma "explicação" diferente, ele mudou o formato do produto final. Ele transformou um parágrafo narrativo em uma mini-documentação padronizada, pronta para ser anexada ao repositório do projeto (como em um arquivo README ou no pull request).
